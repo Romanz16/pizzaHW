@@ -1,0 +1,12 @@
+<div class="container">
+        <div *ngFor="let drink of drinks" class="card bg-light m-2" style="width: 18rem;">
+          <img src="https://www.lapiec-pizza.com.ua/wp-content/uploads/2018/07/cola0.5.jpg" class="card-img-top" alt="drink.title">
+          <div class="card-body">
+            <h5 class="card-title">{{drink.title}}</h5>
+            <p class="card-text">{{drink.text}}</p>
+            <p *ngIf="drink.weight" class="card-text">Вага {{drink.weight}}</p>
+            <p  class="card-text price">{{drink.price}}  грн.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>

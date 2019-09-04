@@ -1,0 +1,13 @@
+<div class="container">
+    <div *ngFor="let prod of product" class="card bg-light m-2" style="width: 18rem;">
+      <img src="https://www.lapiec-pizza.com.ua/wp-content/uploads/2018/08/Capricciosa-big-1.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{prod.title}}</h5>
+        <p class="card-text">{{prod.text}}</p>
+        <p *ngIf="prod.size" class="card-text">Розмір {{prod.size}}</p>
+        <p *ngIf="prod.weight" class="card-text">Вага {{prod.weight}}</p>
+        <p  class="card-text price">{{prod.price}}  грн.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>

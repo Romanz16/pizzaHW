@@ -1,0 +1,67 @@
+<form>
+    <div class="form-group">
+      <input [(ngModel)]="title" name="title" type="text" class="form-control" placeholder="title here...">
+    </div>
+    <div class="form-group">
+      <textarea [(ngModel)]="text" name="text" class="form-control" rows="3" placeholder="text here..."></textarea>
+    </div>
+    <div class="form-group">
+        <input [(ngModel)]="size" name="size" type="text" class="form-control" placeholder="size here...">
+      </div>
+      <div class="form-group">
+        <input [(ngModel)]="weight" name="weight" type="text" class="form-control" placeholder="weight here...">
+      </div>
+      <div class="form-group">
+        <input [(ngModel)]="price" name="price" type="text" class="form-control" placeholder="price here...">
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="inputGroupSelect01">Category</label>
+        </div>
+        <select [(ngModel)]="idCat" name="idCat" class="custom-select" id="inputGroupSelect01">
+          <option *ngFor="let cat of category" [value]=cat.id>{{cat.title}}</option>
+        </select>
+      </div>
+
+    <div class="form-group">
+      <button *ngIf="!editStatus" (click)="addProduct()" type="button" class="btn btn-block btn-dark">Add</button>
+      <button *ngIf="editStatus" (click)="saveEditProduct()" type="button" class="btn btn-block btn-dark">Save Edit</button>
+    </div>
+  </form> 
+  <hr>
+  <table class="table">
+      <thead> 
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Title</th>
+          <th scope="col">Text</th>
+          <th scope="col">Size</th>
+          <th scope="col">Weight</th>
+          <th scope="col">Price</th>
+          <th scope="col">Category</th>
+          <th scope="col">Edit</th>
+          <th scope="col">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let prod of adminProducts; let i=index">
+              <td>{{i+1}}</td>
+              <td>{{prod.title}}</td>
+              <td>{{prod.text}}</td>
+              <td>{{prod.size}}</td>
+              <td>{{prod.weight}}</td>
+              <td>{{prod.price}}</td>
+              <td>{{prod.idCat}}</td>
+              <td>
+                  <button class="btn btn-dark" (click)="editProduct(prod)">Edit</button>
+              </td>
+              <td>
+                  <button [disabled]="editStatus" class="btn btn-dark" (click)="deleteProduct(prod)">Delete</button>
+              </td>
+          </tr>
+      </tbody>
+    </table>
+  
+  <!-- <button (click)="getDisData()">getData</button> -->
+  
