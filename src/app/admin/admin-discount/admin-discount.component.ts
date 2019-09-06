@@ -9,6 +9,7 @@ import { Discount } from 'src/app/shared/classes/discount.model';
   styleUrls: ['./admin-discount.component.scss']
 })
 export class AdminDiscountComponent implements OnInit {
+  pageTitle: string = 'Акції';
   adminDiscounts: Array<IDiscount>;
   title: string;
   text: string;

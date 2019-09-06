@@ -8,6 +8,7 @@ import { ProductsService } from 'src/app/shared/services/products.service';
   styleUrls: ['./drinks.component.scss']
 })
 export class DrinksComponent implements OnInit {
+  title: string = 'Напої';
   drinks: Array<IProduct>;
   constructor(private productService: ProductsService) {
     this.getProdData();

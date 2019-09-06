@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-orders.component.scss']
 })
 export class AdminOrdersComponent implements OnInit {
-
+  pageTitle: string = 'Orders';
   constructor() { }
 
   ngOnInit() {

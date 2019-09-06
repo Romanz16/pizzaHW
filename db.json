@@ -36,11 +36,6 @@
       "id": 4,
       "title": "Free New pizza 2=3",
       "text": "lorem lorem lorem"
-    },
-    {
-      "id": 5,
-      "title": "sdfsd",
-      "text": "fsdfsd"
     }
   ],
   "categories": [
@@ -66,7 +61,7 @@
       "weight": "460 гр",
       "price": "157",
       "idCat": "1",
-      "src": "https://www.lapiec-pizza.com.ua/wp-content/uploads/2018/08/Capricciosa-big-1.jpg"
+      "src": "https://www.lapiec-pizza.com.ua/wp-content/uploads/2018/07/Flamingo-1.jpg"
     },
     {
       "id": 2,
@@ -76,7 +71,7 @@
       "weight": "430 гр",
       "price": "141",
       "idCat": "1",
-      "src": "https://www.lapiec-pizza.com.ua/wp-content/uploads/2018/08/Capricciosa-big-1.jpg"
+      "src": "https://www.lapiec-pizza.com.ua/wp-content/uploads/2018/08/Capricciosa.jpg"
     },
     {
       "id": 3,
@@ -86,7 +81,7 @@
       "weight": "580 гр",
       "price": "182",
       "idCat": "1",
-      "src": "https://www.lapiec-pizza.com.ua/wp-content/uploads/2018/08/Capricciosa-big-1.jpg"
+      "src": "https://www.lapiec-pizza.com.ua/wp-content/uploads/2018/08/Cezario.jpg"
     },
     {
       "id": 4,
@@ -96,7 +91,7 @@
       "weight": "285 гр",
       "price": "134",
       "idCat": "2",
-      "src": "https://www.lapiec-pizza.com.ua/wp-content/uploads/2019/03/Insalata-di-Salmone-big-1.jpg"
+      "src": "https://www.lapiec-pizza.com.ua/wp-content/uploads/2019/03/Insalata-di-Salmone-big-2.jpg"
     },
     {
       "id": 5,
@@ -106,35 +101,56 @@
       "weight": "",
       "price": "24",
       "idCat": "3",
-      "src": "https://www.lapiec-pizza.com.ua/wp-content/uploads/2019/03/Insalata-di-Salmone-big-1.jpg"
+      "src": "https://www.lapiec-pizza.com.ua/wp-content/uploads/2018/07/cola0.5.jpg"
     },
     {
       "id": 6,
-      "title": "pizza",
-      "text": "ggggggg",
-      "size": "22",
-      "weight": "321",
-      "price": "111",
+      "title": "Кватро формаджі",
+      "text": "соус вершковий, пармезан, сир моцарела, сир рікотта, сир дор блю,  волоський горіх, груша.",
+      "size": "30",
+      "weight": "320",
+      "price": 172,
       "idCat": "1",
-      "src": "https://www.lapiec-pizza.com.ua/wp-content/uploads/2018/08/Capricciosa-big-1.jpg"
-    },
-    {
-      "id": 7,
-      "title": "vvvvvv",
-      "text": "dfvdvfdv",
-      "size": "12",
-      "idCat": "3",
-      "src": "https://www.lapiec-pizza.com.ua/wp-content/uploads/2018/08/Capricciosa-big-1.jpg"
+      "src": "https://www.lapiec-pizza.com.ua/wp-content/uploads/2018/07/Flamingo-1.jpg"
     },
     {
       "id": 8,
-      "title": "qqqqqqqqqqqq",
-      "text": "wwwwwwwwwwww",
-      "size": "11",
-      "weight": "22",
-      "price": "33",
+      "title": "Салямі",
+      "text": "соус томатний, сир моцарела, ковбаса салямі",
+      "size": "30",
+      "weight": "220",
+      "price": 131,
       "idCat": "1",
-      "src": "https://www.lapiec-pizza.com.ua/wp-content/uploads/2019/03/Insalata-di-Salmone-big-1.jpg"
+      "src": "https://www.lapiec-pizza.com.ua/wp-content/uploads/2018/08/Capricciosa.jpg"
+    },
+    {
+      "id": 9,
+      "title": "Вода BonAqua — 1 л",
+      "text": "",
+      "size": "56",
+      "price": "24",
+      "idCat": "3",
+      "src": "https://www.lapiec-pizza.com.ua/wp-content/uploads/2019/03/voda-bonaqua-05.jpg"
+    },
+    {
+      "id": 10,
+      "title": "Маргарита",
+      "text": "соус томатний, сир моцарела, помідори.",
+      "size": "45",
+      "weight": "450",
+      "price": 99,
+      "idCat": "1",
+      "src": "https://www.lapiec-pizza.com.ua/wp-content/uploads/2018/08/Capricciosa.jpg"
+    },
+    {
+      "id": 11,
+      "title": "Діабола",
+      "text": "соус томатний, сир моцарела, перець чилі, ковбаса пепероні.",
+      "size": "30",
+      "weight": "230",
+      "price": 127,
+      "idCat": "1",
+      "src": "https://www.lapiec-pizza.com.ua/wp-content/uploads/2018/07/Flamingo-1.jpg"
     }
   ]
 }

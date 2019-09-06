@@ -9,6 +9,7 @@ import { Category } from 'src/app/shared/classes/category.model';
   styleUrls: ['./admin-category.component.scss']
 })
 export class AdminCategoryComponent implements OnInit {
+  pageTitle: string = 'Категорії';
   adminCategories: Array<ICategory>;
   title: string;
   editId: number;

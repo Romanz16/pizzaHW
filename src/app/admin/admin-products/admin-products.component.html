@@ -1,10 +1,31 @@
+<h1>{{pageTitle}}</h1>
 <form>
     <div class="form-group">
-      <input [(ngModel)]="title" name="title" type="text" class="form-control" placeholder="title here...">
+      <input [(ngModel)]="title" name="title" type="text" id="adminProductTitle" class="form-control" placeholder="title here...">
+      <div class="invalid-feedback">
+        Please enter title
+      </div>
     </div>
     <div class="form-group">
-      <textarea [(ngModel)]="text" name="text" class="form-control" rows="3" placeholder="text here..."></textarea>
+      <textarea [(ngModel)]="text" name="text" id="adminProductText" class="form-control" rows="3" placeholder="text here..."></textarea>
+      <div class="invalid-feedback">
+        Please enter text
+      </div>
     </div>
+
+   
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <label class="input-group-text" for="adminProductCat">Category</label>
+      </div>
+      <select [(ngModel)]="idCat"  required name="idCat" class="custom-select form-control" id="adminProductCat">
+        <option *ngFor="let cat of category" [value]=cat.id>{{cat.title}}</option>
+      </select>
+      <div class="invalid-feedback">Please select Category</div>
+    </div>
+
+
+
     <div class="form-group">
         <input [(ngModel)]="size" name="size" type="text" class="form-control" placeholder="size here...">
       </div>
@@ -12,18 +33,39 @@
         <input [(ngModel)]="weight" name="weight" type="text" class="form-control" placeholder="weight here...">
       </div>
       <div class="form-group">
-        <input [(ngModel)]="price" name="price" type="text" class="form-control" placeholder="price here...">
-      </div>
-
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <label class="input-group-text" for="inputGroupSelect01">Category</label>
+        <input [(ngModel)]="price" id="adminProductPrice" name="price" type="number" class="form-control" placeholder="price here...">
+        <div class="invalid-feedback">
+          Please enter Price
         </div>
-        <select [(ngModel)]="idCat" name="idCat" class="custom-select" id="inputGroupSelect01">
-          <option *ngFor="let cat of category" [value]=cat.id>{{cat.title}}</option>
-        </select>
       </div>
 
+     <div *ngIf="productImage"><img width="100" [src]=productImage alt=""></div>
+      <div class="form-group row">
+        <div class="card-body">
+          <h5 class="card-title">Select a file for upload:</h5>
+          <!-- <input type="file" (change)="upload($event)" accept=".png,.jpg" /> -->
+          <input type="file" (change)="upload($event)" accept=".png,.jpg" />
+          <br><br>
+          <div class="progress">
+            <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
+              [style.width]="(uploadProgress | async) + '%'" [attr.aria-valuenow]="(uploadProgress | async)"
+              aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+          <br>
+          <div *ngIf="downloadURL | async; let downloadSrc" class="alert alert-info" role="alert">
+            File uploaded: <a [href]="downloadSrc">{{downloadSrc}}</a>
+          </div>
+          <br>
+          <div class="btn-group" role="group" *ngIf="uploadState | async; let state">
+            <button type="button" class="btn btn-primary" (click)="task.pause()"
+              [disabled]="state === 'paused'">Pause</button>
+            <button type="button" class="btn btn-primary" (click)="task.cancel()"
+              [disabled]="!(state === 'paused' || state === 'running')">Cancel</button>
+            <button type="button" class="btn btn-primary" (click)="task.resume()"
+              [disabled]="state === 'running'">Resume</button>
+          </div>
+        </div>
+      </div>
     <div class="form-group">
       <button *ngIf="!editStatus" (click)="addProduct()" type="button" class="btn btn-block btn-dark">Add</button>
       <button *ngIf="editStatus" (click)="saveEditProduct()" type="button" class="btn btn-block btn-dark">Save Edit</button>

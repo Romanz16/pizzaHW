@@ -8,6 +8,7 @@ import { ProductsService } from 'src/app/shared/services/products.service';
   styleUrls: ['./salad.component.scss']
 })
 export class SaladComponent implements OnInit {
+  title: string = 'Салати';
   salads: Array<IProduct>;
   constructor(private productService: ProductsService) {
     this.getProdData();

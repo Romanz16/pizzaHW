@@ -8,6 +8,7 @@ import { DiscountService } from 'src/app/shared/services/discount.service';
   styleUrls: ['./discount.component.scss']
 })
 export class DiscountComponent implements OnInit {
+  title: string = 'Акції';
   discounts: Array<IDiscount>;
   constructor(private discountService: DiscountService) {
     this.getDisData();

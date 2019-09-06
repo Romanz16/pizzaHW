@@ -8,6 +8,7 @@ import { IProduct } from 'src/app/shared/interfaces/product.interface';
   styleUrls: ['./pizza.component.scss']
 })
 export class PizzaComponent implements OnInit {
+  title: string = 'Піца'
   product: Array<IProduct>;
   constructor(private productService: ProductsService) {
     this.getProdData();

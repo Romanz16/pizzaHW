@@ -1,12 +1,14 @@
+<h1 class="h1">{{title}}</h1>
 <div class="container">
-        <div *ngFor="let salad of salads" class="card bg-light m-2" style="width: 18rem;">
-          <img src="https://www.lapiec-pizza.com.ua/wp-content/uploads/2019/03/Insalata-di-Salmone-big-1.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">{{salad.title}}</h5>
-            <p class="card-text">{{salad.text}}</p>
-            <p *ngIf="salad.weight" class="card-text">Вага {{salad.weight}}</p>
-            <p  class="card-text price">{{salad.price}}  грн.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
+    <div *ngFor="let prod of salads" class="card bg-light m-2" style="width: 18rem;">
+      <img [src]=prod.src class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{prod.title}}</h5>
+        <p class="card-text text">{{prod.text}}</p>
+        <hr>
+        <p  class="card-text price">{{prod.price}}  грн.</p>
+        <div class="btn-order">Замовити</div>
+        
       </div>
+    </div>
+  </div>
