@@ -9,9 +9,8 @@ import { Category } from 'src/app/shared/classes/category.model';
   styleUrls: ['./admin-category.component.scss']
 })
 export class AdminCategoryComponent implements OnInit {
-  adminCategorys: Array<ICategory>;
+  adminCategories: Array<ICategory>;
   title: string;
-  text: string;
   editId: number;
   editStatus: boolean;
   constructor(private categoryService: CategoryService) {
@@ -21,23 +20,36 @@ export class AdminCategoryComponent implements OnInit {
   ngOnInit() {
   }
   private getCatData(): void {
-    this.adminCategorys = this.categoryService.getData();
-    // console.log(this.adminCategorys);
+    this.categoryService.getCategories().subscribe(
+      data => {
+        this.adminCategories = data;
+        console.log( this.adminCategories);
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 
   public addCategory(): void {
     const newDis = new Category(1, this.title);
-    if (this.adminCategorys.length > 0) {
-      newDis.id = this.adminCategorys.slice(-1)[0].id + 1;
+    if (this.adminCategories.length > 0) {
+      newDis.id = this.adminCategories.slice(-1)[0].id + 1;
     }
-    this.categoryService.setData(newDis);
+    this.categoryService.addCategory(newDis).subscribe(
+      () => {
+        this.getCatData();
+      }
+    );
     this.title = '';
-    this.text = '';
   }
 
   public deleteCategory(obj: ICategory): void {
-    const index = this.adminCategorys.findIndex(val => val.id === obj.id);
-    this.categoryService.deleteData(index);
+    this.categoryService.deleteCategory(obj.id).subscribe(
+      () => {
+        this.getCatData();
+      }
+    );
   }
 
   public editCategory(obj: ICategory): void {
@@ -48,10 +60,14 @@ export class AdminCategoryComponent implements OnInit {
 
   public saveEditCategory(): void {
     const editDis = new Category(this.editId, this.title);
-    const index = this.adminCategorys.findIndex(val => val.id === this.editId);
-    this.categoryService.updateData(editDis, index);
+    this.categoryService.editCategory(editDis).subscribe(
+      () => {
+        this.getCatData();
+      }
+    );
     this.title = '';
-    this.text = '';
     this.editStatus = false;
   }
+
+
 }

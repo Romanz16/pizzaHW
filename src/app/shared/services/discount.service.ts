@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { IDiscount } from '../interfaces/discout.interface';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,38 +12,42 @@ export class DiscountService {
       id: 1,
       title: 'Free pizza',
       text: 'lorem lorem lorem'
-    },
-    {
-      id: 2,
-      title: 'Super pizza',
-      text: 'lorem lorem lorem'
-    },
-    {
-      id: 3,
-      title: '-10% to Drink',
-      text: 'lorem lorem lorem -10% to Drink'
-    },
-    {
-      id: 4,
-      title: 'Free New pizza 2=3',
-      text: 'lorem lorem lorem'
     }
   ];
-  constructor() { }
+  url: string;
+  constructor(private http: HttpClient) {
+    this.url = 'http://localhost:3000/discounts';
+   }
 
-  getData(): Array<IDiscount> {
-    return this.discounts;
+
+  public getDiscounts(): Observable<Array<IDiscount>> {
+    return this.http.get<Array<IDiscount>>(this.url);
   }
 
-  setData(obj: IDiscount): void {
-    this.discounts.push(obj);
+  public addDiscount(obj: IDiscount): Observable<Array<IDiscount>> {
+    return this.http.post<Array<IDiscount>>(this.url, obj);
   }
 
-  deleteData(index: number) {
-    this.discounts.splice(index, 1);
+  public deleteDiscount(id: number): Observable<Array<IDiscount>> {
+    return this.http.delete<Array<IDiscount>>(`${this.url}/${id}`);
   }
 
-  updateData(obj: IDiscount, index: number) {
-    this.discounts.splice(index, 1, obj);
+  public editDiscount(obj: IDiscount): Observable<Array<IDiscount>> {
+    return this.http.put<Array<IDiscount>>(`${this.url}/${obj.id}`, obj);
   }
+  // getData(): Array<IDiscount> {
+  //   return this.discounts;
+  // }
+
+  // setData(obj: IDiscount): void {
+  //   this.discounts.push(obj);
+  // }
+
+  // deleteData(index: number) {
+  //   this.discounts.splice(index, 1);
+  // }
+
+  // updateData(obj: IDiscount, index) {
+  //   this.discounts.splice(index, 1, obj);
+  // }
 }

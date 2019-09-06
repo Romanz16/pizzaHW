@@ -16,6 +16,13 @@ export class PizzaComponent implements OnInit {
   ngOnInit() {
   }
   private getProdData(): void {
-    this.product = this.productService.getData().filter(prod => prod.idCat === 1);
+    this.productService.getProducts().subscribe(
+      data => {
+        this.product = data.filter(prod => prod.idCat === '1');
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 }

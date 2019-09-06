@@ -17,8 +17,9 @@ export class AdminProductsComponent implements OnInit {
   text: string;
   weight: string;
   size: string;
-  price: number;
-  idCat: number;
+  price: string;
+  idCat: string;
+  src: string = 'https://www.lapiec-pizza.com.ua/wp-content/uploads/2019/03/Insalata-di-Salmone-big-1.jpg';
   editId: number;
   editStatus: boolean;
   constructor(private productService: ProductsService, private categoryService: CategoryService) {
@@ -28,26 +29,42 @@ export class AdminProductsComponent implements OnInit {
   ngOnInit() {
   }
   private getProdData(): void {
-    this.adminProducts = this.productService.getData();
-    this.category = this.categoryService.getData();
+    this.productService.getProducts().subscribe(
+      data => {
+        this.adminProducts = data;
+      },
+      err => {
+        console.log(err);
+      }
+    );
+    this.categoryService.getCategories().subscribe(
+      data => {
+        this.category = data;
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 
   public addProduct(): void {
-    const newDis = new Product(1, this.title, this.text, this.size, this.weight, this.price, this.idCat);
+    const newDis = new Product(1, this.title, this.text, this.size, this.weight, this.price, this.idCat, this.src);
     if (this.adminProducts.length > 0) {
       newDis.id = this.adminProducts.slice(-1)[0].id + 1;
     }
-    this.productService.setData(newDis);
+    this.productService.addProduct(newDis).subscribe(
+      () => {
+        this.getProdData();
+      }
+    );
     this.title = '';
-    this.text = '';
-    this.size = '';
-    this.weight = '';
-    this.price = 0;
   }
-
   public deleteProduct(obj: IProduct): void {
-    const index = this.adminProducts.findIndex(val => val.id === obj.id);
-    this.productService.deleteData(index);
+    this.productService.deleteProduct(obj.id).subscribe(
+      () => {
+        this.getProdData();
+      }
+    );
   }
 
   public editProduct(obj: IProduct): void {
@@ -62,16 +79,17 @@ export class AdminProductsComponent implements OnInit {
   }
 
   public saveEditProduct(): void {
-    const editProd = new Product(this.editId, this.title, this.text, this.size, this.weight, this.price, this.idCat);
-    const index = this.adminProducts.findIndex(val => val.id === this.editId);
-    this.productService.updateData(editProd, index);
+    const editProd = new Product(this.editId, this.title, this.text, this.size, this.weight, this.price, this.idCat, this.src);
+    this.productService.editProduct(editProd).subscribe(
+      () => {
+        this.getProdData();
+      }
+    );
     this.title = '';
     this.text = '';
     this.size = '';
     this.weight = '';
-    this.price = 0;
+    this.price = '';
     this.editStatus = false;
   }
-
-
 }

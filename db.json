@@ -1,0 +1,140 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "discounts": [
+    {
+      "id": 1,
+      "title": "Free pizza",
+      "text": "lorem lorem lorem"
+    },
+    {
+      "id": 2,
+      "title": "Super pizza",
+      "text": "lorem lorem lorem"
+    },
+    {
+      "id": 3,
+      "title": "-10% to Drink",
+      "text": "lorem lorem lorem -10% to Drink"
+    },
+    {
+      "id": 4,
+      "title": "Free New pizza 2=3",
+      "text": "lorem lorem lorem"
+    },
+    {
+      "id": 5,
+      "title": "sdfsd",
+      "text": "fsdfsd"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "title": "Pizza"
+    },
+    {
+      "id": 2,
+      "title": "Salad"
+    },
+    {
+      "id": 3,
+      "title": "Drinks"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "title": "Піца La П’єц",
+      "text": "соус томатний, шинка, баварські ковбаски, сир моцарела, ковбаса салямі, прошуто.",
+      "size": "30 см",
+      "weight": "460 гр",
+      "price": "157",
+      "idCat": "1",
+      "src": "https://www.lapiec-pizza.com.ua/wp-content/uploads/2018/08/Capricciosa-big-1.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Капрічоза",
+      "text": "соус томатний, сир моцарела, шинка, свіжі гриби.",
+      "size": "30 см",
+      "weight": "430 гр",
+      "price": "141",
+      "idCat": "1",
+      "src": "https://www.lapiec-pizza.com.ua/wp-content/uploads/2018/08/Capricciosa-big-1.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Цезаріо",
+      "text": "соус вершковий, помідори, хрусткий салат, пармезан, куряче мясо, сир моцарела, перепелині яйця.",
+      "size": "30 см",
+      "weight": "580 гр",
+      "price": "182",
+      "idCat": "1",
+      "src": "https://www.lapiec-pizza.com.ua/wp-content/uploads/2018/08/Capricciosa-big-1.jpg"
+    },
+    {
+      "id": 4,
+      "title": "Інсалата ді Сальмоне",
+      "text": "рукола, помідор чері, огірок, салат айсберг, соус айолі, пармезан, лосось, перепелине яйце, кунжут",
+      "size": "",
+      "weight": "285 гр",
+      "price": "134",
+      "idCat": "2",
+      "src": "https://www.lapiec-pizza.com.ua/wp-content/uploads/2019/03/Insalata-di-Salmone-big-1.jpg"
+    },
+    {
+      "id": 5,
+      "title": "Coca Cola — 0,5 л",
+      "text": "",
+      "size": "",
+      "weight": "",
+      "price": "24",
+      "idCat": "3",
+      "src": "https://www.lapiec-pizza.com.ua/wp-content/uploads/2019/03/Insalata-di-Salmone-big-1.jpg"
+    },
+    {
+      "id": 6,
+      "title": "pizza",
+      "text": "ggggggg",
+      "size": "22",
+      "weight": "321",
+      "price": "111",
+      "idCat": "1",
+      "src": "https://www.lapiec-pizza.com.ua/wp-content/uploads/2018/08/Capricciosa-big-1.jpg"
+    },
+    {
+      "id": 7,
+      "title": "vvvvvv",
+      "text": "dfvdvfdv",
+      "size": "12",
+      "idCat": "3",
+      "src": "https://www.lapiec-pizza.com.ua/wp-content/uploads/2018/08/Capricciosa-big-1.jpg"
+    },
+    {
+      "id": 8,
+      "title": "qqqqqqqqqqqq",
+      "text": "wwwwwwwwwwww",
+      "size": "11",
+      "weight": "22",
+      "price": "33",
+      "idCat": "1",
+      "src": "https://www.lapiec-pizza.com.ua/wp-content/uploads/2019/03/Insalata-di-Salmone-big-1.jpg"
+    }
+  ]
+}

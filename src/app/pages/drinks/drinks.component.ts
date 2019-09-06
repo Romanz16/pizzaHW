@@ -16,6 +16,13 @@ export class DrinksComponent implements OnInit {
   ngOnInit() {
   }
   private getProdData(): void {
-    this.drinks = this.productService.getData().filter(prod => prod.idCat === 3);
+    this.productService.getProducts().subscribe(
+      data => {
+        this.drinks = data.filter(prod => prod.idCat === '3');
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 }

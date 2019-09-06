@@ -4,6 +4,7 @@ export interface IProduct {
     text: string;
     size: string;
     weight: string;
-    price: number;
-    idCat: number;
+    price: string;
+    idCat: string;
+    src: string;
 }

@@ -16,6 +16,13 @@ export class SaladComponent implements OnInit {
   ngOnInit() {
   }
   private getProdData(): void {
-    this.salads = this.productService.getData().filter(prod => prod.idCat === 2);
+    this.productService.getProducts().subscribe(
+      data => {
+        this.salads = data.filter(prod => prod.idCat === '2');
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 }
