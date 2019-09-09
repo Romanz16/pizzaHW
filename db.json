@@ -91,7 +91,7 @@
       "weight": "285 гр",
       "price": "134",
       "idCat": "2",
-      "src": "https://www.lapiec-pizza.com.ua/wp-content/uploads/2019/03/Insalata-di-Salmone-big-2.jpg"
+      "src": "https://firebasestorage.googleapis.com/v0/b/pizza-e02c1.appspot.com/o/images%2Foarkk18d338?alt=media&token=b7103bae-bc9f-40ae-bc2f-bd7d7845388b"
     },
     {
       "id": 5,
@@ -121,7 +121,7 @@
       "weight": "220",
       "price": 131,
       "idCat": "1",
-      "src": "https://www.lapiec-pizza.com.ua/wp-content/uploads/2018/08/Capricciosa.jpg"
+      "src": "https://firebasestorage.googleapis.com/v0/b/pizza-e02c1.appspot.com/o/images%2Fdmk4kfk6p9c?alt=media&token=bd00fa05-e9ff-4391-b32c-cb49de06aa71"
     },
     {
       "id": 9,
@@ -140,7 +140,7 @@
       "weight": "450",
       "price": 99,
       "idCat": "1",
-      "src": "https://www.lapiec-pizza.com.ua/wp-content/uploads/2018/08/Capricciosa.jpg"
+      "src": "https://firebasestorage.googleapis.com/v0/b/pizza-e02c1.appspot.com/o/images%2F2ft9m1yxp0i?alt=media&token=2eabf140-7dfd-48c1-8fe1-67c64ab91976"
     },
     {
       "id": 11,
@@ -150,7 +150,49 @@
       "weight": "230",
       "price": 127,
       "idCat": "1",
-      "src": "https://www.lapiec-pizza.com.ua/wp-content/uploads/2018/07/Flamingo-1.jpg"
+      "src": "https://firebasestorage.googleapis.com/v0/b/pizza-e02c1.appspot.com/o/images%2Fu82sgaogtcn?alt=media&token=1228e51e-b35b-4d05-b40e-f0944064ca5c"
+    },
+    {
+      "id": 12,
+      "title": "Прімавера",
+      "text": "сир моцарела, салат айсберг, помідор чері, огірок, болгарський перець, оливкова олія, фреш лимонний, орегано",
+      "weight": "255 г",
+      "price": 99,
+      "idCat": "2",
+      "src": "https://firebasestorage.googleapis.com/v0/b/pizza-e02c1.appspot.com/o/images%2Fsplb6rclpe?alt=media&token=1d5ed755-9ba4-4624-a7f9-8a0b2ddbc43d"
+    },
+    {
+      "id": 13,
+      "title": "Інсалата ді Фета",
+      "text": "Салат айсберг, свіжі овочі, сир фета, кунжут, оливки, бальзамічна заправка.",
+      "weight": "250 г",
+      "price": 112,
+      "idCat": "2",
+      "src": "https://firebasestorage.googleapis.com/v0/b/pizza-e02c1.appspot.com/o/images%2Fu3udfeqqoat?alt=media&token=41609e9a-bf22-4d02-8fbf-6fa347db3674"
+    },
+    {
+      "id": 14,
+      "title": "Сік яблучний 1 л, ТМ “RICH”",
+      "text": "Сік яблучний 1 л, ТМ “RICH”",
+      "price": 42,
+      "idCat": "3",
+      "src": "https://firebasestorage.googleapis.com/v0/b/pizza-e02c1.appspot.com/o/images%2Fyl0icffuu3?alt=media&token=9cf4d337-f9db-46e2-af0f-3172337bd7b6"
+    },
+    {
+      "id": 15,
+      "title": "Сік апельсиновий 1 л, ТМ “RICH”",
+      "text": "Сік апельсиновий 1 л, ТМ “RICH”",
+      "price": 42,
+      "idCat": "3",
+      "src": "https://firebasestorage.googleapis.com/v0/b/pizza-e02c1.appspot.com/o/images%2Fw9z8lw7s8q?alt=media&token=14b0e10f-5657-4851-8eec-40cef6d17b34"
+    },
+    {
+      "id": 16,
+      "title": "Сік екзотик 1 л, ТМ “RICH”",
+      "text": "Сік екзотик 1 л, ТМ “RICH”",
+      "price": 42,
+      "idCat": "3",
+      "src": "https://firebasestorage.googleapis.com/v0/b/pizza-e02c1.appspot.com/o/images%2Fvgi9myfcpu?alt=media&token=11d47753-57bc-4ed5-ab6a-bdccfdea5767"
     }
   ]
 }
