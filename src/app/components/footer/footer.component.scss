@@ -1,4 +1,14 @@
-footer{
-    height: 50px;
-    width: 100%;
+footer {
+  height: 50px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+
+}
+
+img {
+  margin: 5px;
+  height: 40px;
 }

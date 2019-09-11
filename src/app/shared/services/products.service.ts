@@ -12,8 +12,8 @@ export class ProductsService {
   url: string;
   constructor(private http: HttpClient) {
     this.url = 'http://localhost:3000/products';
-   }
-   public getProducts(): Observable<Array<IProduct>> {
+  }
+  public getProducts(): Observable<Array<IProduct>> {
     return this.http.get<Array<IProduct>>(this.url);
   }
 
@@ -27,5 +27,8 @@ export class ProductsService {
 
   public editProduct(obj: IProduct): Observable<Array<IProduct>> {
     return this.http.put<Array<IProduct>>(`${this.url}/${obj.id}`, obj);
+  }
+  public getOneProduct(id: number): Observable<IProduct> {
+    return this.http.get<IProduct>(`${this.url}/${id}`);
   }
 }

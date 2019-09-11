@@ -13,7 +13,7 @@ import { map, finalize } from 'rxjs/operators';
   styleUrls: ['./admin-products.component.scss']
 })
 export class AdminProductsComponent implements OnInit {
-  pageTitle: string = 'Продукти';
+  pageTitle: string = 'Продукти'; 
   adminProducts: Array<IProduct>;
   category: Array<ICategory>;
   title: string = '';

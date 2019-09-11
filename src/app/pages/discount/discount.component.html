@@ -1,11 +1,11 @@
 <h1 class="h1">{{title}}</h1>
 <div class="container">
     <div *ngFor="let discount of discounts" class="card bg-light m-2" style="width: 18rem;">
-      <img src="https://www.lapiec-pizza.com.ua/wp-content/uploads/2019/08/pizza-banner-1.jpg" class="card-img-top" alt="...">
+      <img [src]="discount.src" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">{{discount.title}}</h5>
         <hr>
-        <div class="btn-order">Скористатися</div>
+        <div [routerLink]="[ '/discount', discount.id ]"  class="btn-order">Скористатися</div>
       </div>
     </div>
   </div>

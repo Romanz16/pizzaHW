@@ -1,0 +1,84 @@
+.container1 {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.img,
+.details {
+  width: 100%;
+}
+
+.price {
+  color: #c80000;
+  font-size: 24px;
+  font-family: cursive;
+  text-align: center;
+}
+
+.card-title {
+  text-align: left;
+  font-size: 32px;
+  line-height: 40px;
+  color: #0e0e0e;
+  font-family: cursive;
+  margin: 10px 0 20px 0;
+}
+
+.text {
+  font-size: 18px;
+  text-align: left;
+}
+
+.btn-order {
+  font-size: 13px;
+  padding: 6px 16px 6px;
+  text-align: center;
+  cursor: pointer;
+  font-family: cursive;
+  border: 1px solid #c80000;
+  line-height: 16px;
+  color: #fefefe;
+  background: #c80000;
+  border-radius: 22px;
+  font-weight: 700;
+  transition: .250s;
+}
+
+.btn-order:hover {
+  color: #c80000;
+  background: #fefefe;
+}
+
+.size {
+  line-height: 20px;
+}
+
+.sizeDetails {
+  font-size: 18px;
+  margin-left: 10px;
+}
+
+.btn-back {
+  font-size: 13px;
+  padding: 6px 16px 6px;
+  text-align: center;
+  cursor: pointer;
+  font-family: cursive;
+  border: 1px solid #cce9fd;
+  line-height: 16px;
+  color: #fefefe;
+  background: #cce9fd;
+  border-radius: 22px;
+  font-weight: 700;
+  transition: .250s;
+}
+
+.btn-back:hover {
+  color: #cce9fd;
+  background: #fefefe;
+}
+@media screen and (max-width: 600px) {
+  .container1 {
+    flex-wrap: wrap;
+  }
+}

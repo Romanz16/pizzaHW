@@ -13,12 +13,16 @@ import { AdminCategoryComponent } from './admin/admin-category/admin-category.co
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 import { AdminDiscountComponent } from './admin/admin-discount/admin-discount.component';
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
+import { ProductDetailsComponent } from './pages/product-details/product-details.component';
+import { DiscountDetailsComponent } from './pages/discount-details/discount-details.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
   {path: 'discount', component: DiscountComponent},
+  {path: 'discount/:id', component: DiscountDetailsComponent},
   {path: 'pizza', component: PizzaComponent},
+  {path: 'pizza/:id', component: ProductDetailsComponent},
   {path: 'salad', component: SaladComponent},
   {path: 'drinks', component: DrinksComponent},
   {path: 'about', component: AboutComponent},

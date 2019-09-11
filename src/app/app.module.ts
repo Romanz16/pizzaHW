@@ -25,6 +25,8 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
+import { ProductDetailsComponent } from './pages/product-details/product-details.component';
+import { DiscountDetailsComponent } from './pages/discount-details/discount-details.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { environment } from '../environments/environment';
     AdminDiscountComponent,
     AdminOrdersComponent,
     HryvniaPipe,
-    DiscountComponent
+    DiscountComponent,
+    ProductDetailsComponent,
+    DiscountDetailsComponent
   ],
   imports: [
     BrowserModule,

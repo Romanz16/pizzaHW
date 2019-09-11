@@ -6,7 +6,7 @@
         <h5 class="card-title">{{prod.title}}</h5>
         <hr>
         <p  class="card-text price">{{prod.price}}  грн.</p>
-        <div class="btn-order">Замовити</div>
+        <div [routerLink]="[ '/pizza', prod.id ]"  class="btn-order">Детальніше</div>
       </div>
     </div>
   </div>

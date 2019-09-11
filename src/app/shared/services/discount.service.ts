@@ -7,13 +7,13 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class DiscountService {
-  discounts: Array<IDiscount> = [
-    {
-      id: 1,
-      title: 'Free pizza',
-      text: 'lorem lorem lorem'
-    }
-  ];
+  // discounts: Array<IDiscount> = [
+  //   {
+  //     id: 1,
+  //     title: 'Free pizza',
+  //     text: 'lorem lorem lorem'
+  //   }
+  // ];
   url: string;
   constructor(private http: HttpClient) {
     this.url = 'http://localhost:3000/discounts';
@@ -34,6 +34,9 @@ export class DiscountService {
 
   public editDiscount(obj: IDiscount): Observable<Array<IDiscount>> {
     return this.http.put<Array<IDiscount>>(`${this.url}/${obj.id}`, obj);
+  }
+  public getOneDiscount(id: number): Observable<IDiscount> {
+    return this.http.get<IDiscount>(`${this.url}/${id}`);
   }
   // getData(): Array<IDiscount> {
   //   return this.discounts;
