@@ -11,6 +11,7 @@ import { DiscountService } from 'src/app/shared/services/discount.service';
 })
 export class DiscountDetailsComponent implements OnInit {
   discountId: string;
+  discount: any[];
   view: IDiscount;
   constructor(private discountService: DiscountService,
               private route: ActivatedRoute,
@@ -24,17 +25,19 @@ export class DiscountDetailsComponent implements OnInit {
     this.discountId = this.route.snapshot.paramMap.get('id');
     this.discountService.getDiscounts().subscribe(
       myArray => {
-        let tmp: IDiscount[];
-        tmp = myArray.map(item => {
-          if (item.payload.doc.id === this.discountId) {
-            return {
-              id: item.payload.doc.id,
-              ...item.payload.doc.data()
-            } as IDiscount;
+        this.discount = myArray.map(item => {
+          return {
+            id: item.payload.doc.id,
+            ...item.payload.doc.data()
+          } as IDiscount;
+        });
+        this.discount.forEach(item => {
+          if (item.id === this.discountId) {
+            this.view = item;
           }
         });
-        this.view = tmp[0];
-      });
+      }
+    );
   }
 
   public goBack(): void {

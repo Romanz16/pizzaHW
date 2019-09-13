@@ -52,13 +52,10 @@ export class AdminDiscountComponent implements OnInit {
     );
   }
   public onSubmit(form: NgForm) {
-    const data = Object.assign({}, form.value);
+    let data = Object.assign({}, form.value);
     data.src = this.productImage;
-    // delete data.id;
+    delete data.id;
     this.firestore.collection('discounts').add(data);
-    // else {
-    //   this.firestore.doc('discounts/' + form.value.id).update(data);
-    // }
     this.resetForm();
   }
 

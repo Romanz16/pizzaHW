@@ -28,6 +28,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 import { ProductDetailsComponent } from './pages/product-details/product-details.component';
 import { DiscountDetailsComponent } from './pages/discount-details/discount-details.component';
+import { NewlinePipe } from './shared/pipes/newline.pipe';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { DiscountDetailsComponent } from './pages/discount-details/discount-deta
     HryvniaPipe,
     DiscountComponent,
     ProductDetailsComponent,
-    DiscountDetailsComponent
+    DiscountDetailsComponent,
+    NewlinePipe
   ],
   imports: [
     BrowserModule,

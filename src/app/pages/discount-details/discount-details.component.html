@@ -4,8 +4,8 @@
           <div class="img p-5"> <img [src]=view?.src class="card-img-top" alt="..."></div>
           <div class="details p-5">
             <h5 class="card-title">{{view?.title}}</h5>
-            <p class="card-text text">{{view?.text}}</p>
-            <hr>
+            <p class="card-text text"  [innerHTML]="view?.text | newline"></p>
+            <hr> 
             <!-- <div [routerLink]="[ '/pizza']"  class="btn-order">Назад</div> -->
             <!-- <div class="btn-order">Замовити</div><br> -->
             <a (click)="goBack()" class="btn-back">Повернутися Назад</a>

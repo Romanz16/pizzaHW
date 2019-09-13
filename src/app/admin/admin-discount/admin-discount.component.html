@@ -2,73 +2,79 @@
 <form #form="ngForm" (submit)="onSubmit(form)">
   <div class="form-group">
     <input type="hidden" name="id" #id="ngModel" [(ngModel)]="formData.id">
-    <input [(ngModel)]="formData.title" name="title" type="text" #qq="ngModel" class="form-control" placeholder="title here..." required>
-  <div *ngIf="qq.invalid && qq.touched">Заповніть усі поля</div>
+    <input [(ngModel)]="formData.title" name="title" type="text" #qq="ngModel" class="form-control"
+      placeholder="title here..." required>
+    <div *ngIf="qq.invalid && qq.touched">Заповніть усі поля</div>
   </div>
   <div class="form-group">
-    <textarea [(ngModel)]="formData.text" name="text" #ww="ngModel" class="form-control" rows="3" placeholder="text here..." required></textarea>
+    <textarea [(ngModel)]="formData.text" name="text" #ww="ngModel" class="form-control" rows="3"
+      placeholder="text here..." required></textarea>
     <div *ngIf="ww.invalid && ww.touched">Заповніть усі поля</div>
   </div>
- 
+
 
   <div *ngIf="productImage"><img width="100" [src]=productImage alt=""></div>
-      <div class="form-group row">
-        <div class="card-body">
-          <h5 class="card-title">Select a file for upload:</h5>
-          <!-- <input type="file" (change)="upload($event)" accept=".png,.jpg" /> -->
-          <input type="file" name="src" (change)="upload($event)" accept=".png,.jpg" />
-          <br><br>
-          <div class="progress">
-            <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
-              [style.width]="(uploadProgress | async) + '%'" [attr.aria-valuenow]="(uploadProgress | async)"
-              aria-valuemin="0" aria-valuemax="100"></div>
-          </div>
-          <br>
-          <div *ngIf="downloadURL | async; let downloadSrc" class="alert alert-info" role="alert">
-            File uploaded: <a [href]="downloadSrc">{{downloadSrc}}</a>
-          </div>
-          <br>
-          <div class="btn-group" role="group" *ngIf="uploadState | async; let state">
-            <button type="button" class="btn btn-primary" (click)="task.pause()"
-              [disabled]="state === 'paused'">Pause</button>
-            <button type="button" class="btn btn-primary" (click)="task.cancel()"
-              [disabled]="!(state === 'paused' || state === 'running')">Cancel</button>
-            <button type="button" class="btn btn-primary" (click)="task.resume()"
-              [disabled]="state === 'running'">Resume</button>
-          </div>
-        </div>
+  <input type="hidden" name="src" #im="ngModel" [(ngModel)]="productImage" required>
+  <!-- <div *ngIf="im.invalid">Оберіть картинку</div> -->
+  <div class="form-group row">
+    <div class="card-body">
+      <h5 class="card-title">Оберіть картинку*</h5>
+      <input type="file" name="src" (change)="upload($event)" accept=".png,.jpg" />
+      <br><br>
+      <div class="progress">
+        <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
+          [style.width]="(uploadProgress | async) + '%'" [attr.aria-valuenow]="(uploadProgress | async)"
+          aria-valuemin="0" aria-valuemax="100"></div>
       </div>
+      <br>
+      <div *ngIf="downloadURL | async; let downloadSrc" class="alert alert-info" role="alert">
+        File uploaded: <a [href]="downloadSrc">{{downloadSrc}}</a>
+      </div>
+      <br>
+      <div class="btn-group" role="group" *ngIf="uploadState | async; let state">
+        <button type="button" class="btn btn-primary" (click)="task.pause()"
+          [disabled]="state === 'paused'">Pause</button>
+        <button type="button" class="btn btn-primary" (click)="task.cancel()"
+          [disabled]="!(state === 'paused' || state === 'running')">Cancel</button>
+        <button type="button" class="btn btn-primary" (click)="task.resume()"
+          [disabled]="state === 'running'">Resume</button>
+      </div>
+    </div>
+  </div>
 
 
   <div class="form-group">
-    <button [disabled]="form.invalid" *ngIf="!editStatus"  type="submit" class="btn btn-block btn-dark">Add</button>
-    <button [disabled]="form.invalid" *ngIf="editStatus" (click)="saveEditDiscount(form)" type="submit" class="btn btn-block btn-dark">Save Edit</button>
+    <button [disabled]="form.invalid" *ngIf="!editStatus" type="submit" class="btn btn-block btn-dark">Add</button>
+    <button [disabled]="form.invalid" *ngIf="editStatus" (click)="saveEditDiscount(form)" type="submit"
+      class="btn btn-block btn-dark">Save Edit</button>
   </div>
-</form>  
+</form>
 <hr>
 <table class="table">
-    <thead> 
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Title</th>
-        <th scope="col">Text</th>
-        <th scope="col">Edit</th>
-        <th scope="col">Delete</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let dis of adminDiscounts; let i=index">
-            <td>{{i+1}}</td>
-            <td>{{dis.title}}</td>
-            <td>{{dis.text}}</td>
-            <td>
-                <button class="btn btn-dark" (click)="editDiscount(dis)">Edit</button>
-            </td>
-            <td>
-                <button [disabled]="editStatus" class="btn btn-dark" (click)="deleteDiscount(dis)">Delete</button>
-            </td>
-        </tr>
-    </tbody>
-  </table>
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">Text</th>
+      <th scope="col">image</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let dis of adminDiscounts; let i=index">
+      <td>{{i+1}}</td>
+      <td>{{dis.title}}</td>
+      <td>{{dis.text}}</td>
+      <td><img [src]="dis.src" width="50px;" height="50px" alt=""></td>
+      <td>
+        <button class="btn btn-dark" (click)="editDiscount(dis)">Edit</button>
+      </td>
+      <td>
+        <button [disabled]="editStatus" class="btn btn-dark" (click)="deleteDiscount(dis)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 <!-- <button (click)="getDisData()">getData</button> -->
