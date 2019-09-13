@@ -10,7 +10,7 @@ import { DiscountService } from 'src/app/shared/services/discount.service';
   styleUrls: ['./discount-details.component.scss']
 })
 export class DiscountDetailsComponent implements OnInit {
-  discountId: number;
+  discountId: string;
   view: IDiscount;
   constructor(private discountService: DiscountService,
               private route: ActivatedRoute,
@@ -21,11 +21,22 @@ export class DiscountDetailsComponent implements OnInit {
   ngOnInit() {
   }
   public getMoreDetails() {
-    this.discountId = Number(this.route.snapshot.paramMap.get('id'));
-    this.discountService.getOneDiscount(this.discountId).subscribe(
-      data => { this.view = data; }
-    );
+    this.discountId = this.route.snapshot.paramMap.get('id');
+    this.discountService.getDiscounts().subscribe(
+      myArray => {
+        let tmp: IDiscount[];
+        tmp = myArray.map(item => {
+          if (item.payload.doc.id === this.discountId) {
+            return {
+              id: item.payload.doc.id,
+              ...item.payload.doc.data()
+            } as IDiscount;
+          }
+        });
+        this.view = tmp[0];
+      });
   }
+
   public goBack(): void {
     this.location.back();
   }

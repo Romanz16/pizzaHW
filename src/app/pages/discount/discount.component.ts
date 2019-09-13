@@ -17,13 +17,18 @@ export class DiscountComponent implements OnInit {
   ngOnInit() { }
   private getDisData(): void {
     this.discountService.getDiscounts().subscribe(
-      data => {
-        this.discounts = data;
-      },
-      err => {
-        console.log(err);
+      myArray => {
+        // console.log('myarray', myArray);
+        this.discounts = myArray.map(item => {
+          return {
+            id: item.payload.doc.id,
+            ...item.payload.doc.data()
+          } as IDiscount;
+        });
       }
     );
+
+
   }
   // private getDisData(): void {
   //   this.discounts = this.discountService.getData();

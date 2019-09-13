@@ -1,5 +1,5 @@
 export interface IDiscount {
-    id: number;
+    id: string;
     title: string;
     text: string;
     src: string;

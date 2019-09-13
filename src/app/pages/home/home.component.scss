@@ -5,15 +5,15 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Raleway', sans-serif;
-    background-image: radial-gradient(circle at center, #899Dc4, #495D84);
-    background-size: cover;
-    background-repeat: no-repeat;
+    // background-image: radial-gradient(circle at center, #899Dc4, #495D84);
+    // background-size: cover;
+    // background-repeat: no-repeat;
    
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: radial-gradient(ellipse at bottom, #1b2735, #090a0f);
+    // background: radial-gradient(ellipse at bottom, #1b2735, #090a0f);
     font-weight: 300;
 }
 .h1 {
@@ -58,7 +58,7 @@
     transform-style: preserve-3d;
     border-radius: 10px;
     border: 1px solid #fff;
-    box-shadow: 0 0 20px 5px rgba(100, 100, 255, .4);
+    box-shadow: 0 0 20px 5px rgba(238, 121, 67, 0.6);
     opacity: 0;
     transition: all .3s ease;
     transition-delay: 1s;
@@ -66,13 +66,13 @@
     background-position: center center;
     background-size: contain;
     background-repeat: no-repeat;
-    background-color: #58d;
+    background-color: rgba(247, 165, 89, 0.6);
     cursor: pointer;
     background-blend-mode: color-burn;
     
     &:hover {
-      box-shadow: 0 0 30px 10px rgba(100, 100, 255, .6);
-    background-color: #ccf;
+      box-shadow: 0 0 30px 10px rgba(238, 121, 67, 0.6);
+    background-color: rgb(238, 202, 172);
     }
   }
   .text {
@@ -84,7 +84,7 @@
     position: absolute;
     will-change: transform;
     color: #fff;
-    text-shadow: 0 0 5px rgba(100, 100, 255, .6)
+    text-shadow: 0 0 5px rgba(238, 121, 67, 0.6)
   }
   .lefter {
     transform: translateX(-60px) translateZ(-50px) rotateY(-10deg);
@@ -113,8 +113,9 @@
     transition: all .6s ease;
     width: 100%;
     height: 100%;
-    background-color: #303050;
-    background-image: radial-gradient(circle at center top, #cce, #33a);
+    background-color: rgb(243, 227, 176);
+    // background-image: url(../../../assets/img/menu-icon-2.svg);
+    background-image: radial-gradient(circle at center top, rgb(243, 227, 176), rgb(247, 165, 89));
     border-radius: 10px;
     text-shadow: 0 0 10px rgba(255, 255, 255, .8);
     
