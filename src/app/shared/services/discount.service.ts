@@ -17,6 +17,9 @@ export class DiscountService {
   public getDiscounts() {
     return this.firestore.collection('discounts').snapshotChanges();
   }
+  public getOneDiscounts(id: string) {
+    return this.firestore.doc('discounts/' + id).snapshotChanges();
+  }
   // public getOneDiscount(id: string) {
   //   return this.firestore.collection('discounts/' + id).snapshotChanges();
   // }

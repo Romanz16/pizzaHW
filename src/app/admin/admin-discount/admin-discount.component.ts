@@ -34,8 +34,10 @@ export class AdminDiscountComponent implements OnInit {
   uploadProgress: Observable<number>;
   downloadURL: Observable<string>;
   urlImage: string;
+
+  sort1: Array<number> = [3, 3, 3];
   constructor(private discountService: DiscountService, private prStorage: AngularFireStorage,
-              private firestore: AngularFirestore) {
+    private firestore: AngularFirestore) {
     // this.getDisData();
   }
 
@@ -52,7 +54,7 @@ export class AdminDiscountComponent implements OnInit {
     );
   }
   public onSubmit(form: NgForm) {
-    let data = Object.assign({}, form.value);
+    const data = Object.assign({}, form.value);
     data.src = this.productImage;
     delete data.id;
     this.firestore.collection('discounts').add(data);
@@ -162,42 +164,41 @@ export class AdminDiscountComponent implements OnInit {
       })
     ).subscribe();
   }
-  // private getDisData(): void {
-  //   this.adminDiscounts = this.discountService.getData();
-  //   console.log(this.adminDiscounts);
-  // }
 
-  // public addDiscount(): void {
-  //   const newDis = new Discount(1, this.title, this.text);
-  //   if (this.adminDiscounts.length > 0) {
-  //     newDis.id = this.adminDiscounts.slice(-1)[0].id + 1;
-  //   }
-  //   this.discountService.setData(newDis);
-  //   this.title = '';
-  //   this.text = '';
-  // }
-
-  //   public deleteDiscount(obj: IDiscount): void {
-  //     const index = this.adminDiscounts.findIndex(val => val.id === obj.id);
-  //     console.log(index);
-  //     this.discountService.deleteData(index);
-  //   }
-
-  //   public editDiscount(obj: IDiscount): void {
-  //     this.title = obj.title;
-  //     this.text = obj.text;
-  //     this.editId = obj.id;
-  //     this.editStatus = true;
-  //   }
-
-  //   public saveEditDiscount(): void {
-  //     const editDis = new Discount(this.editId, this.title, this.text);
-  //     const index = this.adminDiscounts.findIndex(val => val.id === this.editId);
-  //     this.discountService.updateData(editDis, index);
-  //     this.title = '';
-  //     this.text = '';
-  //     this.editStatus = false;
-  //   }
+  public sort(name: string, num: number): void {
+    let sortColumn = this.sort1[num];
+    this.sort1[0] = 3;
+    this.sort1[1] = 3;
+    this.sort1[2] = 3;
+    if (sortColumn !== 2) {
+      this.sort1[num] = 2;
+      this.adminDiscounts.sort(function (a, b) {
+        let nameA = a[name];
+        let nameB = b[name];
+        if (nameA < nameB) {
+          return -1;
+        }
+        if (nameA > nameB) {
+          return 1;
+        }
+        return 0;
+      });
+    }
+    else {
+      this.sort1[num] = 1;
+      this.adminDiscounts.sort(function (a, b) {
+        let nameA = a[name];
+        let nameB = b[name];
+        if (nameA > nameB) {
+          return -1;
+        }
+        if (nameA < nameB) {
+          return 1;
+        }
+        return 0;
+      });
+    }
+  }
 
 
 }

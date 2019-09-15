@@ -23,22 +23,12 @@ export class DiscountDetailsComponent implements OnInit {
   }
   public getMoreDetails() {
     this.discountId = this.route.snapshot.paramMap.get('id');
-    this.discountService.getDiscounts().subscribe(
+    this.discountService.getOneDiscounts(this.discountId).subscribe(
       myArray => {
-        this.discount = myArray.map(item => {
-          return {
-            id: item.payload.doc.id,
-            ...item.payload.doc.data()
-          } as IDiscount;
-        });
-        this.discount.forEach(item => {
-          if (item.id === this.discountId) {
-            this.view = item;
-          }
-        });
+        this.view = { id: myArray.payload.id, ...myArray.payload.data() } as IDiscount;
       }
     );
-  }
+}
 
   public goBack(): void {
     this.location.back();

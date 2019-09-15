@@ -1,35 +1,38 @@
 <h1>{{pageTitle}}</h1>
-<form>
+<form #form="ngForm" (submit)="onSubmit(form)">
   <div class="form-group">
-    <input [(ngModel)]="title" name="title" type="text" class="form-control" placeholder="title here...">
+    <input type="hidden" name="id" #id="ngModel" [(ngModel)]="formData.id">
+    <input [(ngModel)]="formData.title" name="title" type="text" #qq="ngModel" class="form-control"
+      placeholder="title here..." required>
+    <div *ngIf="qq.invalid && qq.touched">Заповніть усі поля</div>
   </div>
   <div class="form-group">
-    <button *ngIf="!editStatus" (click)="addCategory()" type="button" class="btn btn-block btn-dark">Add</button>
-    <button *ngIf="editStatus" (click)="saveEditCategory()" type="button" class="btn btn-block btn-dark">Save Edit</button>
-  </div>
+    <button [disabled]="form.invalid" *ngIf="!editStatus" type="submit" class="btn btn-block btn-dark">Add</button>
+    <button [disabled]="form.invalid" *ngIf="editStatus" (click)="saveEditCategory(form)" type="submit"
+      class="btn btn-block btn-dark">Save Edit</button> </div>
 </form>
 <hr>
-<table class="table">
-    <thead> 
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Title</th>
-        <th scope="col">Edit</th>
-        <th scope="col">Delete</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let cat of adminCategories; let i=index">
-            <td>{{i+1}}</td>
-            <td>{{cat.title}}</td>
-            <td>
-                <button class="btn btn-dark" (click)="editCategory(cat)">Edit</button>
-            </td>
-            <td>
-                <button [disabled]="editStatus" class="btn btn-dark" (click)="deleteCategory(cat)">Delete</button>
-            </td>
-        </tr>
-    </tbody>
-  </table>
+<table class='table' st-table='displayPunchcards' st-safe-src='punchcards'>
+  <thead>
+    <tr>
+      <th scope="col" (click)="sort('id',0)">#id <i class="fa fa-fw fa-sort"></i></th>
+      <th scope="col" (click)="sort('title',1)">Title <i class="fa fa-fw fa-sort"></i></th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cat of adminCategories; let i=index">
+      <td>{{cat.id}}</td>
+      <td>{{cat.title}}</td>
+      <td>
+        <button class="btn btn-dark" (click)="editCategory(cat)">Edit</button>
+      </td>
+      <td>
+        <button [disabled]="editStatus" class="btn btn-dark" (click)="deleteCategory(cat)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 <!-- <button (click)="getDisData()">getData</button> -->
