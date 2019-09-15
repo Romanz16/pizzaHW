@@ -10,7 +10,7 @@ import { ProductsService } from 'src/app/shared/services/products.service';
   styleUrls: ['./product-details.component.scss']
 })
 export class ProductDetailsComponent implements OnInit {
-  productId: number;
+  productId: string;
   view: IProduct;
   constructor(private productService: ProductsService,
               private route: ActivatedRoute,
@@ -18,14 +18,16 @@ export class ProductDetailsComponent implements OnInit {
     this.getMoreDetails();
   }
 
-  ngOnInit() { 
+  ngOnInit() {
   }
   public getMoreDetails() {
-    this.productId = Number(this.route.snapshot.paramMap.get('id'));
-    this.productService.getOneProduct(this.productId).subscribe(
-      data => { this.view = data; }
+    this.productId = this.route.snapshot.paramMap.get('id');
+    this.productService.getOneProducts(this.productId).subscribe(
+      myArray => {
+        this.view = { id: myArray.payload.id, ...myArray.payload.data() } as IProduct;
+      }
     );
-  }
+}
   public goBack(): void {
     this.location.back();
   }

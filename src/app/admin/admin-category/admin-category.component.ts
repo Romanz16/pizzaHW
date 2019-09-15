@@ -37,7 +37,7 @@ export class AdminCategoryComponent implements OnInit {
         });
       }
     );
-  }
+  } 
   public onSubmit(form: NgForm) {
     let data = Object.assign({}, form.value);
     delete data.id;
@@ -48,7 +48,7 @@ export class AdminCategoryComponent implements OnInit {
     if (form != null) {
       form.reset();
     } else {
-      this. formData = {
+      this.formData = {
         id: '',
         title: '',
       };

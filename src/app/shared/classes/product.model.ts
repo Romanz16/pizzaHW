@@ -2,7 +2,7 @@ import { IProduct } from '../interfaces/product.interface';
 
 export class Product implements IProduct {
     constructor(
-        public id: number,
+        public id: string,
         public title: string,
         public text: string,
         public size: string,

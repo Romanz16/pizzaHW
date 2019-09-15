@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from 'src/app/shared/services/products.service';
 import { IProduct } from 'src/app/shared/interfaces/product.interface';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-pizza',
@@ -8,8 +9,10 @@ import { IProduct } from 'src/app/shared/interfaces/product.interface';
   styleUrls: ['./pizza.component.scss']
 })
 export class PizzaComponent implements OnInit {
-  title: string = 'Піца'
+  title = 'Піца';
   product: Array<IProduct>;
+  discountId: string;
+
   constructor(private productService: ProductsService) {
     this.getProdData();
   }
@@ -18,12 +21,15 @@ export class PizzaComponent implements OnInit {
   }
   private getProdData(): void {
     this.productService.getProducts().subscribe(
-      data => {
-        this.product = data.filter(prod => prod.idCat === '1');
-      },
-      err => {
-        console.log(err);
+      myArray => {
+        this.product = myArray.map(item => {
+          return {
+            id: item.payload.doc.id,
+            ...item.payload.doc.data()
+          } as IProduct;
+        }).filter(prod => prod.idCat === 'pizza');
       }
     );
   }
+
 }

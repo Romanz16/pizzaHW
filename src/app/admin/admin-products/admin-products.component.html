@@ -1,13 +1,16 @@
 <h1>{{pageTitle}}</h1>
-<form>
+<form #form="ngForm" (submit)="onSubmit(form)">
     <div class="form-group">
-      <input [(ngModel)]="title" name="title" type="text" id="adminProductTitle" class="form-control" placeholder="title here...">
+        <input type="hidden" name="id" #id="ngModel" [(ngModel)]="formData.id">
+      <input [(ngModel)]="formData.title" name="title" type="text" #qq="ngModel" class="form-control" placeholder="title here..." required>
+      <div *ngIf="qq.invalid && qq.touched">Заповніть усі поля</div>
       <div class="invalid-feedback">
         Please enter title
       </div>
     </div>
     <div class="form-group">
-      <textarea [(ngModel)]="text" name="text" id="adminProductText" class="form-control" rows="3" placeholder="text here..."></textarea>
+      <textarea [(ngModel)]="formData.text" name="text" #ww="ngModel" id="adminProductText" class="form-control" rows="3" placeholder="text here..." required></textarea>
+      <div *ngIf="ww.invalid && ww.touched">Заповніть усі поля</div>
       <div class="invalid-feedback">
         Please enter text
       </div>
@@ -18,28 +21,28 @@
       <div class="input-group-prepend">
         <label class="input-group-text" for="adminProductCat">Category</label>
       </div>
-      <select [(ngModel)]="idCat"  required name="idCat" class="custom-select form-control" id="adminProductCat">
-        <option *ngFor="let cat of category" [value]=cat.id>{{cat.title}}</option>
+      <select [(ngModel)]="formData.idCat"  required name="idCat" #cc="ngModel" class="custom-select form-control" id="adminProductCat">
+        <option *ngFor="let cat of category" [value]=cat.title>{{cat.title}}</option>
       </select>
+      <div *ngIf="cc.invalid && cc.touched">Оберіть категорію</div>
       <div class="invalid-feedback">Please select Category</div>
     </div>
 
 
 
     <div class="form-group">
-        <input [(ngModel)]="size" name="size" type="text" class="form-control" placeholder="size here...">
+        <input [(ngModel)]="formData.size" name="size" type="text" class="form-control" placeholder="size here...">
       </div>
       <div class="form-group">
-        <input [(ngModel)]="weight" name="weight" type="text" class="form-control" placeholder="weight here...">
+        <input [(ngModel)]="formData.weight" name="weight" type="text" class="form-control" placeholder="weight here...">
       </div>
       <div class="form-group">
-        <input [(ngModel)]="price" id="adminProductPrice" name="price" type="number" class="form-control" placeholder="price here...">
-        <div class="invalid-feedback">
-          Please enter Price
-        </div>
+        <input [(ngModel)]="formData.price" id="adminProductPrice"  #pp="ngModel" name="price" type="number" class="form-control" placeholder="price here...">
+        <div *ngIf="pp.invalid && pp.touched">Оберіть категорію</div>
       </div>
 
      <div *ngIf="productImage"><img width="100" [src]=productImage alt=""></div>
+     <input type="hidden" name="src" #im="ngModel" [(ngModel)]="productImage" required>
       <div class="form-group row">
         <div class="card-body">
           <h5 class="card-title">Select a file for upload:</h5>
@@ -67,23 +70,25 @@
         </div>
       </div>
     <div class="form-group">
-      <button *ngIf="!editStatus" (click)="addProduct()" type="button" class="btn btn-block btn-dark">Add</button>
-      <button *ngIf="editStatus" (click)="saveEditProduct()" type="button" class="btn btn-block btn-dark">Save Edit</button>
+      <button [disabled]="form.invalid" *ngIf="!editStatus"  type="submit" class="btn btn-block btn-dark">Add</button>
+      <button [disabled]="form.invalid" *ngIf="editStatus" (click)="saveEditProduct(form)" type="submit" class="btn btn-block btn-dark">Save Edit</button>
     </div>
   </form> 
   <hr>
-  <table class="table">
+  <table class="table table-striped table-bordered table-sm">
       <thead> 
         <tr>
-          <th scope="col">#</th>
-          <th scope="col">Title</th>
-          <th scope="col">Text</th>
-          <th scope="col">Size</th>
-          <th scope="col">Weight</th>
-          <th scope="col">Price</th>
-          <th scope="col">Category</th>
+          <th scope="col" (click)="sort('id',0)"><i class="fa fa-fw fa-sort"><strong>#</strong></i> </th>
+          <th scope="col" (click)="sort('title',1)"><i class="fa fa-fw fa-sort">Title</i> </th>
+          <th scope="col" (click)="sort('text',2)"><i class="fa fa-fw fa-sort">Text</i> </th>
+          <th scope="col" (click)="sort('size',3)">Size</th>
+          <th scope="col" (click)="sort('weight',4)">Weight</th>
+          <th scope="col" (click)="sort('price',5)">Price</th>
+          <th scope="col" (click)="sort('idCat',6)">Category</th>
+           <th scope="col">image</th>
           <th scope="col">Edit</th>
           <th scope="col">Delete</th>
+          
         </tr>
       </thead>
       <tbody>
@@ -95,6 +100,7 @@
               <td>{{prod.weight}}</td>
               <td>{{prod.price}}</td>
               <td>{{prod.idCat}}</td>
+              <td><img [src]="prod.src" width="50px;" height="50px" alt=""></td>
               <td>
                   <button class="btn btn-dark" (click)="editProduct(prod)">Edit</button>
               </td>

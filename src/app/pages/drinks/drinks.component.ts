@@ -18,11 +18,13 @@ export class DrinksComponent implements OnInit {
   }
   private getProdData(): void {
     this.productService.getProducts().subscribe(
-      data => {
-        this.drinks = data.filter(prod => prod.idCat === '3');
-      },
-      err => {
-        console.log(err);
+      myArray => {
+        this.drinks = myArray.map(item => {
+          return {
+            id: item.payload.doc.id,
+            ...item.payload.doc.data()
+          } as IProduct;
+        }).filter(prod => prod.idCat === 'drinks');
       }
     );
   }
